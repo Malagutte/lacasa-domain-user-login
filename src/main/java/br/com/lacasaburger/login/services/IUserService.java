@@ -8,5 +8,7 @@ public interface IUserService {
 
 
     Optional<User> loadUserByEmail(final String email);
+
+    Optional<User> loadUserById(final String id);
     
 }

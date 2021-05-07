@@ -56,7 +56,7 @@ public class LoginController {
             String token = Jwts.builder()
                     .signWith(Keys.hmacShaKeyFor(SecurityHelper.JWT_SECRET.getBytes()), SignatureAlgorithm.HS512)
                     .setIssuer("user-api").setHeaderParam("type", SecurityHelper.TOKEN_TYPE).setExpiration(expiration)
-                    .claim(SecurityHelper.TOKEN_USER_ID, user.getId()).compact();
+                    .setSubject(user.getId()).compact();
 
             var response = LoginDTOResponse.builder().token(token).build();
 

@@ -14,10 +14,15 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserRepository userRepository;
-    
+
     @Override
     public Optional<User> loadUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-    
+
+    @Override
+    public Optional<User> loadUserById(String id) {
+        return userRepository.findById(id);
+    }
+
 }
